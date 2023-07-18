@@ -28,4 +28,4 @@ jobs:
     #     python lint.py 
     - name: Run pytest suite 
       run: | 
-        pytest pytest_test.py 
+        pytest factorial_tests.py 
