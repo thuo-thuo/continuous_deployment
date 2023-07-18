@@ -2,11 +2,13 @@
 
 on: 
   push: 
-    branches: [ main ] 
-    paths: 
-    - '../../factorial.py' 
-    - '../../myfunc.py' 
-    - '../../factorial_tests.py ' 
+    branches:
+        - main
+        - dev
+    # paths: 
+    # - '../../factorial.py' 
+    # - '../../myfunc.py' 
+    # - '../../factorial_tests.py ' 
 jobs: 
   build: 
     runs-on: ubuntu-latest 
