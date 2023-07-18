@@ -4,9 +4,9 @@ on:
   push: 
     branches: [ dev ] 
     paths: 
-    - 'factorial.py' 
-    - 'myfunc.py' 
-    - 'factorial_tests.py ' 
+    - '../../factorial.py' 
+    - '../../myfunc.py' 
+    - '../../factorial_tests.py ' 
 jobs: 
   build: 
     runs-on: ubuntu-latest 
