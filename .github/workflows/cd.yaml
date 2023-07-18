@@ -2,7 +2,7 @@
 
 on: 
   push: 
-    branches: [ dev, main ] 
+    branches: [ main ] 
     paths: 
     - '../../factorial.py' 
     - '../../myfunc.py' 
