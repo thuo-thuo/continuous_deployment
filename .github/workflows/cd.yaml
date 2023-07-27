@@ -21,11 +21,31 @@ jobs:
     - name: Install dependencies 
       run: | 
         python -m pip install --upgrade pip 
-        pip install pytest 
+        pip install pytest
     # - name: Lint with pylint 
 
     #   run: | 
     #     python lint.py 
     - name: Run pytest suite 
       run: | 
-        pytest factorial_tests.py 
+        pytest factorial_tests.py
+
+  deploy: 
+      needs: build 
+      name: Upload to Amazon S3 
+      runs-on: ubuntu-latest 
+      steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials 
+        uses: aws-actions/configure-aws-credentials@v1 
+        with: 
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+
+      - name: Copy our python module to our S3 bucket with the AWS CLI 
+        run: | 
+          aws s3 cp factorial.py s3://'your_s3_bucket_name_goes_here' 
+          aws s3 ls s3://'your_s3_bucket_name_goes_here'
