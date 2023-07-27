@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Configure AWS credentials 
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v1
         with: 
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
@@ -48,5 +48,5 @@ jobs:
 
       - name: Copy our python module to our S3 bucket with the AWS CLI 
         run: | 
-          aws s3 cp factorial.py s3://'your_s3_bucket_name_goes_here' 
-          aws s3 ls s3://'your_s3_bucket_name_goes_here'
+          aws s3 cp factorial.py factorial_tests.py myfunc.py s3://cd-python-bucket 
+          aws s3 ls s3://cd-python-bucket
