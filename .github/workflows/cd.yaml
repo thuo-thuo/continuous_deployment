@@ -48,5 +48,5 @@ jobs:
 
       - name: Copy our python module to our S3 bucket with the AWS CLI 
         run: | 
-          aws s3 cp factorial.py factorial_tests.py myfunc.py s3://cd-python-bucket 
+          aws s3 cp factorial.py s3://cd-python-bucket 
           aws s3 ls s3://cd-python-bucket
